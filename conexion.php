@@ -3,7 +3,7 @@
 class BD{
     private static $instancia=NULL;
 
-    public static function crearInstanci(){
+    public static function crearInstancia(){
         if ( !isset(self::$instancia)){
             
             $opcionesPDO[PDO::ATTR_ERRORMODE] = PDO::ERRMODE_EXCEPTION;

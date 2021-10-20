@@ -1,5 +1,9 @@
 <?php
 
+include_once( 'connection.php');
+
+BD::crearInstancia();
+
 class ControladorLibros{
 
     public function inicio(){
