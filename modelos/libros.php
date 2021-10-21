@@ -1,37 +1,31 @@
-<<<<<<< HEAD
-<?php
-
-class Libro{
-
-    //Propiedades
-    private $titulo;
-    private $fechaPublicacion;
-    private $editorial;
-    private $edicion;
-    private $genero;
-
-
-// Metodos
-    public static function crear($titulo, $fechaPublicacion, $editorial, $edicion, $genero){
-        //  $this->titulo = $titulo;
-    }
-}
-
-
-
-=======
 <?php
     class Libros {
 
-        //validar campos de la BD y nombres
+        //Validar cual de los dos van si public o private
         public $id;
         public $nombre;
         public $autor;
+
+        //Propiedades
+        private $titulo;
+        private $fechaPublicacion;
+        private $editorial;
+        private $edicion;
+        private $genero;
 
         public function __construct($id, $nombre, $autor) {
             $this->id = $id;
             $this->nombre = $nombre;
             $this->autor= $autor;
+        }
+
+        public static function crearLibro($nombre, $autor) { //$titulo, $fechaPublicacion, $editorial, $edicion, $genero
+
+            $connectionBD=BD::crearInstancia();
+
+            $sql=$connectionBD->prepare("INSERT INTO libros(nombre, autor) VALUES(?,?);");
+
+            $sql->execute([$nombre, $autor]);
         }
 
         public static function getLibros() {
@@ -43,15 +37,6 @@ class Libro{
             return $listaLibros;
         }
 
-        public static function crearLibro($nombre, $autor) {
-
-            $connectionBD=BD::crearInstancia();
-
-            $sql=$connectionBD->prepare("INSERT INTO libros(nombre, autor) VALUES(?,?);");
-
-            $sql->execute([$nombre, $autor]);
-        }
-
         public static function eliminarLibro($id) {
 
             $connectionBD = BD::crearInstancia();
@@ -59,5 +44,4 @@ class Libro{
             $sql->execute([$id]);
         }
     }
->>>>>>> f3a4ce0944c610497fd7cb3eaf97b8d786f06798
 ?>
