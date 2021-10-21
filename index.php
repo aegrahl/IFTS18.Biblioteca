@@ -10,7 +10,6 @@ $accion="inicio";
 //     if( ($_GET['controlador'] != "") && ($_GET['accion'] !="") ){
 //         $controlador = $_GET["controlador"];
 //         $accion = $_GET["accion"];
-
 //     }
 //     // print_r($_GET);
 

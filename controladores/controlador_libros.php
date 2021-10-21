@@ -1,6 +1,6 @@
 <?php
 
-include_once( 'connection.php');
+include_once("conexion.php");
 
 BD::crearInstancia();
 
@@ -11,6 +11,9 @@ class ControladorLibros{
     }
 
     public function crear(){
+        if($_POST){
+            print_r($_POST);
+        }
         include_once("vistas/libros/crear.php");
     }
 

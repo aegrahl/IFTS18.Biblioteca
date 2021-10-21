@@ -6,9 +6,9 @@ class BD{
     public static function crearInstancia(){
         if ( !isset(self::$instancia)){
             
-            $opcionesPDO[PDO::ATTR_ERRORMODE] = PDO::ERRMODE_EXCEPTION;
+            $opcionesPDO[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 
-            self::$instancia= new PDO('mysql:host=localhost;dbname=biblioteca','root','Insegura123',$opcionesPDO);
+            self::$instancia= new PDO('mysql:host=localhost;dbname=biblio','root','',$opcionesPDO);
             echo "conexión realizada";
         }
         return self::$instancia;
