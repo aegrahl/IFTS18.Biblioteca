@@ -9,12 +9,26 @@
         </tr>
     </thead>
     <tbody>
+
+        <?php
+            foreach ($libros as $dato) {
+        ?>
+
         <tr>
-            <td>1</td>
-            <td>test</td>
-            <td>foo</td>
-            <td>foo</td>
-            <td>Editar | Eliminar</td>
+            <td><?php echo $dato->id; ?></td>
+            <td><?php echo $dato->nombre; ?></td>
+            <td><?php echo $dato->autor; ?></td>
+            <td>
+                <div class="btn-group" role="group" aria-label="">
+                <a href="?controlador=libros&accion=editar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
+                <a href="?controlador=libros&accion=eliminar&id=<?php echo $dato->id; ?>" class="btn btn-danger ">Borrar</a>
+                </div>
+            </td>
         </tr>
+
+        <?php
+        }
+        ?>
+        
     </tbody>
 </table>
