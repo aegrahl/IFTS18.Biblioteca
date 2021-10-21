@@ -4,17 +4,27 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Nacionalidad</th>
-            <th>Accion</th>
         </tr>
     </thead>
     <tbody>
+
+        <?php
+            foreach ($autores as $autor) {
+        ?>
         <tr>
-            <td>1</td>
-            <td>test</td>
-            <td>foo</td>
-            <td>foo</td>
-            <td>Editar | Eliminar</td>
+            <td><?php echo $autor->id_autor; ?></td>
+            <td><?php echo $autor->nombre; ?></td>
+            <td><?php echo $autor->apellido; ?></td>
+            <td>
+                <div class="btn-group" role="group" aria-label="">
+                <a href="?controlador=autor&accion=editar&id=<?php echo $autor->id_autor; ?>" class="btn btn-warning ">Editar</a>
+                <a href="?controlador=autor&accion=eliminar&id=<?php echo $autor->id_autor; ?>" class="btn btn-danger ">Borrar</a>
+                </div>
+            </td>
         </tr>
+        <?php
+        }
+        ?>
+
     </tbody>
 </table>

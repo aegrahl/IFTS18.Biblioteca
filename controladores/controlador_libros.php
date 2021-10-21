@@ -30,7 +30,7 @@ class ControladorLibros{
 
     public function eliminar(){
 
-        Libros::eliminarLibro($_GET['id'])
+        Libros::eliminarLibro($_GET['id']);
         include_once("vistas/libros/editar.php");
     }
 
