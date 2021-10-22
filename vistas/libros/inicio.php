@@ -1,3 +1,5 @@
+<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controller=employees&action=create" role="button">Agregar empleado</a>
+
 <table class="table">
     <thead>
         <tr>

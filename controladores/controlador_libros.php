@@ -1,7 +1,7 @@
 <?php
 
 include_once('modelos/libros.php');
-include_once('connection.php');
+include_once('conexion.php');
 
 BD::crearInstancia();
 
@@ -30,7 +30,7 @@ class ControladorLibros{
 
     public function eliminar(){
 
-        Libros::eliminarLibro($_GET['id'])
+        Libros::eliminarLibro($_GET['id']);
         include_once("vistas/libros/editar.php");
     }
 

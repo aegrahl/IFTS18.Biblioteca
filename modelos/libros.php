@@ -2,30 +2,31 @@
     class Libros {
 
         //Validar cual de los dos van si public o private
-        public $id;
-        public $nombre;
-        public $autor;
+        // public $id;
+        // public $titulo;
+        // public $autor;
 
         //Propiedades
+        private $id;
         private $titulo;
         private $fechaPublicacion;
         private $editorial;
         private $edicion;
         private $genero;
 
-        public function __construct($id, $nombre, $autor) {
+        public function __construct($id, $titulo, $autor) {
             $this->id = $id;
-            $this->nombre = $nombre;
+            $this->titulo = $titulo;
             $this->autor= $autor;
         }
 
-        public static function crearLibro($nombre, $autor) { //$titulo, $fechaPublicacion, $editorial, $edicion, $genero
+        public static function crearLibro($titulo, $autor) { //$titulo, $fechaPublicacion, $editorial, $edicion, $genero
 
             $connectionBD=BD::crearInstancia();
 
-            $sql=$connectionBD->prepare("INSERT INTO libros(nombre, autor) VALUES(?,?);");
+            $sql=$connectionBD->prepare("INSERT INTO libros(titulo, autor) VALUES(?,?);");
 
-            $sql->execute([$nombre, $autor]);
+            $sql->execute([$titulo, $autor]);
         }
 
         public static function getLibros() {
