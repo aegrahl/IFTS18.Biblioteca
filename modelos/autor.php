@@ -17,9 +17,19 @@ class Autor extends Persona{
         $sql= $conexionDB->prepare("INSERT INTO autores(nombre, apellido) VALUES(?,?)");
         $sql->execute(array($nombre,$apellido));
     }
+
+
+    public static function getAutores(){
+        $conexionDB = BD::crearInstancia();
+        $sql = $conexionDB->query("SELECT * FROM autores;");
+        $listaAutores = $sql->fetchAll(PDO::FETCH_OBJ);
+
+        return $listaAutores;
+    }
+
+
+    
 }
-
-
 
 ?> 
 

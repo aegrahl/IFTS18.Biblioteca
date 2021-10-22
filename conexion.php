@@ -12,7 +12,8 @@ class BD{
             self::$instancia= new PDO('mysql:host=bcq7ybxkczv8vumgdtzh-mysql.services.clever-cloud.com;
                                        dbname=bcq7ybxkczv8vumgdtzh','ucqk18sstrokeatm','ET4EZCQU0TIbeoNadcnN',$opcionesPDO);
 
-            // self::$instancia= new PDO('mysql:host=localhost;dbname=biblio','root','',$opcionesPDO);
+            self::$instancia= new PDO('mysql:host=localhost;dbname=id17807862_biblio','root','',$opcionesPDO);
+            echo "conexión realizada";
         }
         return self::$instancia;
     }

@@ -8,6 +8,7 @@ BD::crearInstancia();
 class ControladorAutor{
 
     public function inicio(){
+        $autores = Autor::getAutores();
         include_once("vistas/autor/inicio.php");
     }
 
