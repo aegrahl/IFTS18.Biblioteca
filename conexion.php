@@ -8,12 +8,10 @@ class BD{
             
             $opcionesPDO[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 
-            //PruebaBD serverCloud
-            self::$instancia= new PDO('mysql:host=bcq7ybxkczv8vumgdtzh-mysql.services.clever-cloud.com;
-                                       dbname=bcq7ybxkczv8vumgdtzh','ucqk18sstrokeatm','ET4EZCQU0TIbeoNadcnN',$opcionesPDO);
+            //Instancia MySQL en ServerCloud
+            self::$instancia= new PDO('mysql:host=bs47gyztx8ksuyjwjx5n-mysql.services.clever-cloud.com;
+                                       dbname=bs47gyztx8ksuyjwjx5n','u2lfvjgk7jpcxi4m','jjIApkzh48A0I6IPyZm3',$opcionesPDO);
 
-            self::$instancia= new PDO('mysql:host=localhost;dbname=id17807862_biblio','root','',$opcionesPDO);
-            echo "conexión realizada";
         }
         return self::$instancia;
     }

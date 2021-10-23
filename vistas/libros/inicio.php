@@ -4,8 +4,8 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Autor</th>
             <th>Titulo</th>
+            <th>Editorial</th>
             <th>Genero</th>
             <th>Accion</th>
         </tr>
@@ -18,8 +18,10 @@
 
         <tr>
             <td><?php echo $dato->id; ?></td>
-            <td><?php echo $dato->nombre; ?></td>
-            <td><?php echo $dato->autor; ?></td>
+            <td><?php echo $dato->titulo; ?></td>
+            <td><?php echo $dato->editorial; ?></td>
+            <td><?php echo $dato->genero; ?></td>
+           
             <td>
                 <div class="btn-group" role="group" aria-label="">
                 <a href="?controlador=libros&accion=editar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
