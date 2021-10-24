@@ -52,6 +52,13 @@
             return $libro;
         }
 
+        public static function editar($id, $titulo, $genero, $editorial, $autor) {
+
+            $connectionBD = BD::crearInstancia();
+            $sql=$connectionBD->prepare("UPDATE libros SET titulo=?, genero=?, editorial=?, id_autor=? WHERE id=?;");
+            $sql->execute([$titulo, $genero, $editorial, $autor, $id]);
+        }
+
         public static function eliminarLibro($id) {
 
             $connectionBD = BD::crearInstancia();

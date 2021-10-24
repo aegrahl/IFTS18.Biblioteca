@@ -16,7 +16,7 @@
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="#">Libreria <span class="visually-hidden">(current)</span></a>
             <a class="nav-item nav-link" href="#">Home</a>
-            <a class="nav-item nav-link" href="#">Libros</a>
+            <a class="nav-item nav-link" href="?controlador=libros&accion=inicio">Libros</a>
         </div>
     </nav>
     

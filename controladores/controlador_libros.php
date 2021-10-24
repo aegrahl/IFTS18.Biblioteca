@@ -32,13 +32,24 @@ class ControladorLibros{
     }
 
     public function editar(){
+
+        if($_POST){
+            Libros::editar($_POST['id'], $_POST['titulo'],$_POST['genero'],$_POST['editorial'],$_POST['autor']);
+            print_r($_POST);
+            header('Location: ./?controlador=libros&accion=inicio');
+
+        }
+        
+        $libro = Libros::buscarLibro($_GET['id']);
         include_once("vistas/libros/editar.php");
     }
+
+    
 
     public function eliminar(){
 
         Libros::eliminarLibro($_GET['id']);
-        include_once("vistas/libros/editar.php");
+        header('Location: ./?controlador=libros&accion=inicio');
     }
 
 }

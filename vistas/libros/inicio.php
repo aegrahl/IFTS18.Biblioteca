@@ -24,7 +24,7 @@
            
             <td>
                 <div class="btn-group" role="group" aria-label="">
-                <a href="?controlador=libros&accion=buscar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
+                <a href="?controlador=libros&accion=editar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
                 <a href="?controlador=libros&accion=eliminar&id=<?php echo $dato->id; ?>" class="btn btn-danger ">Borrar</a>
                 </div>
             </td>
