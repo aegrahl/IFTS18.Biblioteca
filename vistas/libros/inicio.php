@@ -1,4 +1,4 @@
-<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controller=employees&action=create" role="button">Agregar empleado</a>
+<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=libros&accion=crear" role="button">Agregar Libro</a>
 
 <table class="table">
     <thead>
@@ -24,7 +24,7 @@
            
             <td>
                 <div class="btn-group" role="group" aria-label="">
-                <a href="?controlador=libros&accion=editar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
+                <a href="?controlador=libros&accion=buscar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
                 <a href="?controlador=libros&accion=eliminar&id=<?php echo $dato->id; ?>" class="btn btn-danger ">Borrar</a>
                 </div>
             </td>

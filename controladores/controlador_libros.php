@@ -17,11 +17,18 @@ class ControladorLibros{
     public function crear(){
 
         if($_POST) {
-            Libros::crearLibro($_POST['nombre'],$_POST['autor']);
+            Libros::crearLibro($_POST['titulo'], $_POST['genero'], $_POST['editorial'],$_POST['autor']);
+            print_r($_POST);
             header('Location: ./?controlador=libros&accion=inicio');
         }
 
         include_once("vistas/libros/crear.php");
+    }
+
+    public function buscar(){
+
+        $libro = Libros::buscarLibro($_GET['id']);
+        include_once("vistas/libros/editar.php");
     }
 
     public function editar(){
