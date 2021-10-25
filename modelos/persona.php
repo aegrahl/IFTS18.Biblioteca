@@ -2,24 +2,27 @@
 
 class Persona{
 
-    private $nombre;
-    private $apellido;
+    public $nombre;
+    public $apellido;
     // private $nacionalidad;
 
-    function set_nombre($nombre) {
+    public function __construct($nombre, $apellido) {
         $this->nombre = $nombre;
-    }
-    function get_nombre() {
-        return $this->nombre;
-    }
-
-    function set_apellido($apellido) {
         $this->apellido = $apellido;
     }
-    function get_apellido() {
-        return $this->apellido;
-    }
+
+    // function set_nombre($nombre) {
+    //     $this->nombre = $nombre;
+    // }
+    // function get_nombre() {
+    //     return $this->nombre;
+    // }
+
+    // function set_apellido($apellido) {
+    //     $this->apellido = $apellido;
+    // }
+    // function get_apellido() {
+    //     return $this->apellido;
+    // }
 
 }
-
-?>

@@ -9,15 +9,11 @@ class Autor extends Persona{
     //private $foo;
 
 // Metodos
-    public static function crear($nombre, $apellido){
+    public static function crearAutor($nombre, $apellido){
         $conexionDB = BD::crearInstancia();
-        // $this->nombre = $nombre;
-        // $this->apellido = $apellido;
-        print_r($nombre, $apellido);
         $sql= $conexionDB->prepare("INSERT INTO autores(nombre, apellido) VALUES(?,?)");
-        $sql->execute(array($nombre,$apellido));
+        $sql->execute([$nombre,$apellido]);
     }
-
 
     public static function getAutores(){
         $conexionDB = BD::crearInstancia();
@@ -27,8 +23,24 @@ class Autor extends Persona{
         return $listaAutores;
     }
 
+    public static function buscarAutor($id) {
+            
+        $connectionBD = BD::crearInstancia();
+        $sql = $connectionBD->prepare("SELECT * FROM autores WHERE id_autor=?;");
+        $sql->execute([$id]);
+        $autor = $sql->fetchAll(PDO::FETCH_OBJ);
+        
+        return $autor;
+    }
 
-    
+    public static function editarAutor($id, $nombre, $apellido) {
+
+        $connectionBD = BD::crearInstancia();
+        $sql=$connectionBD->prepare("UPDATE autores SET nombre=?, apellido=? WHERE id_autor=?;");
+        $sql->execute([$nombre, $apellido, $id]);
+    }
+
+
 }
 
 ?> 

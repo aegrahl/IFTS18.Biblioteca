@@ -1,20 +1,11 @@
 <?php
     class Libros {
 
-        //Validar cual de los dos van si public o private
         public $id;
         public $titulo;
         public $genero;
         public $editorial;
         public $autor;
-
-        //Propiedades
-        // private $id;
-        // private $titulo;
-        // private $fechaPublicacion;
-        // private $editorial;
-        // private $edicion;
-        // private $genero;
 
         public function __construct($id, $titulo, $genero, $editorial, $autor) {
             $this->id = $id;

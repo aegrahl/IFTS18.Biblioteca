@@ -15,21 +15,19 @@
         <?php
             foreach ($libros as $dato) {
         ?>
-
-        <tr>
-            <td><?php echo $dato->id; ?></td>
-            <td><?php echo $dato->titulo; ?></td>
-            <td><?php echo $dato->editorial; ?></td>
-            <td><?php echo $dato->genero; ?></td>
-           
-            <td>
-                <div class="btn-group" role="group" aria-label="">
-                <a href="?controlador=libros&accion=editar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
-                <a href="?controlador=libros&accion=eliminar&id=<?php echo $dato->id; ?>" class="btn btn-danger ">Borrar</a>
-                </div>
-            </td>
-        </tr>
-
+            <tr>
+                <td><?php echo $dato->id; ?></td>
+                <td><?php echo $dato->titulo; ?></td>
+                <td><?php echo $dato->editorial; ?></td>
+                <td><?php echo $dato->genero; ?></td>
+            
+                <td>
+                    <div class="btn-group" role="group" aria-label="">
+                    <a href="?controlador=libros&accion=editar&id=<?php echo $dato->id; ?>" class="btn btn-warning ">Editar</a>
+                    <a href="?controlador=libros&accion=eliminar&id=<?php echo $dato->id; ?>" class="btn btn-danger ">Borrar</a>
+                    </div>
+                </td>
+            </tr>
         <?php
         }
         ?>

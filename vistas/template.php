@@ -14,16 +14,16 @@
 
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="#">Libreria <span class="visually-hidden">(current)</span></a>
             <a class="nav-item nav-link" href="#">Home</a>
             <a class="nav-item nav-link" href="?controlador=libros&accion=inicio">Libros</a>
+            <a class="nav-item nav-link" href="?controlador=autor&accion=inicio">Autores</a>
         </div>
     </nav>
     
     <div class="container">
         <div class="row">
             <div class="col-12">
-              <?php include_once("ruteador.php") ?>
+              <?php include_once("ruteador.php")?>
             </div>
             
         </div>

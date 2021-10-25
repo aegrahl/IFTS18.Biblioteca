@@ -35,7 +35,6 @@ class ControladorLibros{
 
         if($_POST){
             Libros::editar($_POST['id'], $_POST['titulo'],$_POST['genero'],$_POST['editorial'],$_POST['autor']);
-            print_r($_POST);
             header('Location: ./?controlador=libros&accion=inicio');
 
         }
@@ -49,7 +48,7 @@ class ControladorLibros{
     public function eliminar(){
 
         Libros::eliminarLibro($_GET['id']);
-        header('Location: ./?controlador=libros&accion=inicio');
+        header('Location:./?controlador=libros&accion=inicio');
     }
 
 }

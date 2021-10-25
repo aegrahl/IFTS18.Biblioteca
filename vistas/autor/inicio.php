@@ -1,9 +1,12 @@
+<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=autor&accion=crear" role="button">Agregar Autor</a>
+
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>

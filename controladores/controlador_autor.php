@@ -14,15 +14,27 @@ class ControladorAutor{
 
     public function crear(){
         if($_POST){
-            print_r($_POST);
-            $nombre=$_POST['nombre'];
-            $apellido=$_POST['apellido'];
-            Autor::crear($nombre,$apellido);
+            Autor::crearAutor($_POST['nombre'],$_POST['apellido']);
+            header('Location: ./?controlador=autor&accion=inicio');
         }
         include_once("vistas/autor/crear.php");
     }
 
+    public function buscarAutor(){
+        $autor = Autor::buscarAutor($_GET['id']);
+        include_once("vistas/autor/editar.php");
+    }
+
     public function editar(){
+
+        if($_POST){
+            print_r($_POST);
+            Autor::editarAutor($_POST['id'], $_POST['nombre'],$_POST['apellido']);
+            header('Location: ./?controlador=autor&accion=inicio');
+
+        }
+        
+        $autor = Autor::buscarAutor($_GET['id']);
         include_once("vistas/autor/editar.php");
     }
 
