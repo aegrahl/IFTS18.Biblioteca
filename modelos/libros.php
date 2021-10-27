@@ -15,13 +15,13 @@
             $this->autor= $autor;
         }
 
-        public static function crearLibro($titulo, $genero, $editorial, $autor) {
+        public static function crearLibro($titulo, $id_genero, $id_editorial, $id_autor) {
 
             $connectionBD=BD::crearInstancia();
 
-            $sql=$connectionBD->prepare("INSERT INTO libros(titulo, genero, editorial, id_autor) VALUES(?,?,?,?);");
+            $sql=$connectionBD->prepare("INSERT INTO libros(titulo, id_genero, id_editorial, id_autor) VALUES(?,?,?,?);");
 
-            $sql->execute([$titulo, $genero, $editorial, $autor]);
+            $sql->execute([$titulo, $id_genero, $id_editorial, $id_autor]);
         }
 
         public static function getLibros() {
@@ -55,6 +55,19 @@
             $connectionBD = BD::crearInstancia();
             $sql= $connectionBD->prepare("DELETE FROM libros WHERE id=?;");
             $sql->execute([$id]);
+        }
+
+        public static function ListarLibros(array $libros) {
+            
+            $connectionBD = BD::crearInstancia();
+
+            $sql = $connectionBD->query("select l.id_libro, l.titulo titulo, concat(a.nombre, ' ',a.apellido) as autor, g.nombre genero, e.nombre editorial from autores a
+            inner join libros l on l.id_autor = a.id_autor
+            inner join generos g on l.id_genero = g.id_genero
+            inner join editoriales e on l.id_editorial = e.id_editorial");
+            $sql->execute();
+            $librosAretornar = $sql->fetchAll(PDO::FETCH_OBJ);
+            return $librosAretornar;
         }
     }
 ?>

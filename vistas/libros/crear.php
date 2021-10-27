@@ -12,39 +12,38 @@
 
             <div class="mb-3">
                 <!-- Aca tiene que ir un select list, falta crear el mvc de Generos  -->
-                <label for="genero" class="form-label">Genero: </label>
-                <select required class="form-select" name="genero" id="genero">
-                    <option selected disabled="disabled">Genero del libro</option>
-                    <option value="Novela">Novela</option>
-                    <option value="Suspenso">Suspenso</option>
-                    <option value="Ciencia Ficción">Ciencia Ficción</option>
-                    <option value="Historia">Historia</option>
-                    <option value="Artes">Artes</option>
-                    <option value="Pedagogí­a">Pedagogía</option>
+                <label for="id_genero" class="form-label">Genero: </label>
+                <select required class="form-select" name="id_genero" id="id_genero">
+                <?php
+                foreach ($generos as $genero){
+                    echo "<option value='$genero->id_genero'>$genero->nombre</option>"; 
+                }
+                ?>
                 </select>
             </div>
 
             <div class="mb-3">
                 <!-- Aca tiene que ir un select list, falta crear el mvc de editorial  -->
-                <label for="editorial" class="form-label">Editorial: </label>
-                <select required class="form-select" name="editorial" id="editorial">
-                    <option selected disabled="disabled">Editor</option>
-                    <option value="Editorial 1">Editorial 1</option>
-                    <option value="Editorial 2">Editorial 2</option>
-                    <option value="Editorial 3">Editorial 3</option>
-                    <option value="Editorial 4">Editorial 4</option>
+                <label for="id_editorial" class="form-label">Editorial: </label>
+                <select required class="form-select" name="id_editorial" id="id_editorial">
+                <?php
+                foreach ($editoriales as $editorial){
+                    echo "<option value='$editorial->id_editorial'>$editorial->nombre $autor->apellido</option>"; 
+                }
+                ?>
                 </select>
             </div>
 
+
             <div class="mb-3">
                 <!-- Aca tiene que ir un select list, falta crear el mvc de autor  -->
-                <label for="autor" class="form-label">Autor: </label>
-                <select required class="form-select" name="autor" id="autor">
-                    <option selected>Autor del libro</option>
-                    <option value="1">Gabriel Garcia Marquez</option>
-                    <option value="2">José Saramago</option>
-                    <option value="3">Dan Brown</option>
-                    <option value="4">John Ronald Reuel Tolkien</option>
+                <label for="id_autor" class="form-label">Autor: </label>
+                <select required class="form-select" name="id_autor" id="id_autor">
+                <?php
+                foreach ($autores as $autor){
+                    echo "<option value='$autor->id_autor'>$autor->nombre $autor->apellido</option>"; 
+                }
+                ?>
                 </select>
             </div>
 

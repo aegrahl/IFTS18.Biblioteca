@@ -5,8 +5,16 @@ include_once("modelos/persona.php");
 
 class Autor extends Persona{
 
-    //Propiedades
-    //private $foo;
+    public $id_autor;
+    public $nombre;
+    public $apellido;
+
+
+    public function __construct($id_autor, $nombre, $apellido) {
+        $this->id_autor = $id_autor;
+        $this->titulo = $nombre;
+        $this->genero= $apellido;
+    }
 
 // Metodos
     public static function crearAutor($nombre, $apellido){
@@ -23,22 +31,23 @@ class Autor extends Persona{
         return $listaAutores;
     }
 
-    public static function buscarAutor($id) {
+    public static function buscarAutor($id_autor) {
             
         $connectionBD = BD::crearInstancia();
         $sql = $connectionBD->prepare("SELECT * FROM autores WHERE id_autor=?;");
-        $sql->execute([$id]);
+        $sql->execute([$id_autor]);
         $autor = $sql->fetchAll(PDO::FETCH_OBJ);
         
         return $autor;
     }
 
-    public static function editarAutor($id, $nombre, $apellido) {
+    public static function editarAutor($id_autor, $nombre, $apellido) {
 
         $connectionBD = BD::crearInstancia();
         $sql=$connectionBD->prepare("UPDATE autores SET nombre=?, apellido=? WHERE id_autor=?;");
-        $sql->execute([$nombre, $apellido, $id]);
+        $sql->execute([$nombre, $apellido, $id_autord]);
     }
+
 
 
 }
