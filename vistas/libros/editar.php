@@ -49,14 +49,6 @@
                 </select>
             </div>
 
-            <?php
-            foreach (Autor::getAutores() as $autor) {
-                $autorStr = $autor->nombre.' '.$autor->apellido;
-                print_r($autorStr);
-                echo '<br>';
-            }
-            ?>
-
             <div class="mb-3">
                 <label for="autor" class="form-label">Autor:</label>
                 <select required class="form-select" name="autor" id="autor">
@@ -84,4 +76,4 @@
 
     </div>
 
-</div> -->
+</div>

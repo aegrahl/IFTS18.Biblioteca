@@ -28,10 +28,10 @@
             
             $connectionBD = BD::crearInstancia();
 
-            $sql = $connectionBD->query("select l.id_libro, l.titulo titulo, concat(a.nombre, ' ',a.apellido) as autor, g.nombre genero, e.nombre editorial from autores a
-            inner join libros l on l.id_autor = a.id_autor
-            inner join generos g on l.id_genero = g.id_genero
-            inner join editoriales e on l.id_editorial = e.id_editorial");
+            $sql = $connectionBD->query("SELECT l.id_libro, l.titulo titulo, concat(a.nombre, ' ',a.apellido) as autor, g.nombre genero, e.nombre editorial FROM autores a
+                                         JOIN libros l ON l.id_autor = a.id_autor
+                                         JOIN generos g ON l.id_genero = g.id_genero
+                                         JOIN editoriales e ON l.id_editorial = e.id_editorial");
             $listaLibros = $sql->fetchAll(PDO::FETCH_OBJ);
             return $listaLibros;
         }
@@ -53,7 +53,7 @@
         public static function editar($id, $titulo, $genero, $editorial, $autor) {
 
             $connectionBD = BD::crearInstancia();
-            $sql=$connectionBD->prepare("UPDATE libros SET titulo=?, genero=?, editorial=?, id_autor=? WHERE id=?;");
+            $sql=$connectionBD->prepare("UPDATE libros SET titulo=?, id_autor=?, id_genero=?, id_editorial=? WHERE id_libro=?;");
             $sql->execute([$titulo, $genero, $editorial, $autor, $id]);
         }
 

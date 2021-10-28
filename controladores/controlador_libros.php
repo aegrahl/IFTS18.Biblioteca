@@ -44,7 +44,7 @@ class ControladorLibros{
     public function editar(){
 
         if($_POST){
-            Libros::editar($_POST['id_libro'], $_POST['titulo'],$_POST['genero'],$_POST['editorial'],$_POST['autor']);
+            Libros::editar($_POST['id_libro'], $_POST['titulo'],$_POST['id_genero'],$_POST['id_editorial'],$_POST['id_autor']);
             header('Location: ./?controlador=libros&accion=inicio');
 
         }
