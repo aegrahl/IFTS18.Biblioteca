@@ -1,9 +1,9 @@
-<div class="card">
+<!-- <div class="card">
     <div class="card-header">
         Editar Libro
     </div>
     <div class="card-body">
-
+<!--  -->
         <form action="" method="post">
             <div class="mb-3">
                 <label for=titulo"" class="form-label">Titulo: </label>
@@ -13,40 +13,67 @@
             <div class="mb-3">
                 <label for="genero" class="form-label">Genero: </label>
                 <select required class="form-select" name="genero" id="genero">
-                    <option selected><?php echo $libro[0]->genero; ?></option>
-                    <option value="Novela">Novela</option>
-                    <option value="Suspenso">Suspenso</option>
-                    <option value="Ciencia Ficción">Ciencia Ficción</option>
-                    <option value="Historia">Historia</option>
-                    <option value="Artes">Artes</option>
-                    <option value="Pedagogí­a">Pedagogía</option>
+                    <option selected><?php echo $libro[0]->gen_nombre; ?></option>
+                    
+                    <?php
+                    foreach (Generos::getgeneros() as $genero) {
+                        Print_r($genero->nombre);
+                        if ($genero->nombre == $libro[0]->gen_nombre) {
+                            continue;
+                        }
+                    ?>
+                        <option value=<?php echo $genero->id_genero; ?>><?php echo $genero->nombre; ?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
-
-            <!--TODO:
-                - Crear tablas editorial, autores, modificar consultas haciendo join para recuperar los valores y meterlos en un for.
-            -->
 
             <div class="mb-3">
-                <!-- Aca tiene que ir un select list, falta crear el mvc de editorial  -->
                 <label for="editorial" class="form-label">Editorial:</label>
                 <select required class="form-select" name="editorial" id="editorial">
-                    <option selected ><?php echo $libro[0]->editorial; ?></option>
-                    <option value="Editorial 1">Editorial 1</option>
-                    <option value="Editorial 2">Editorial 2</option>
-                    <option value="Editorial 3">Editorial 3</option>
-                    <option value="Editorial 4">Editorial 4</option>
+                    <option selected ><?php echo $libro[0]->ed_nombre; ?></option>
+                    
+                    <?php
+                    foreach (Editorial::getEditoriales() as $editorial) {
+                        Print_r($editorial->nombre);
+                        if ($editorial->nombre == $libro[0]->ed_nombre) {
+                            continue;
+                        }
+                    ?>
+                        <option value=<?php echo $editorial->id_editorial; ?>><?php echo $editorial->nombre; ?></option>
+
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
+
+            <?php
+            foreach (Autor::getAutores() as $autor) {
+                $autorStr = $autor->nombre.' '.$autor->apellido;
+                print_r($autorStr);
+                echo '<br>';
+            }
+            ?>
 
             <div class="mb-3">
                 <label for="autor" class="form-label">Autor:</label>
                 <select required class="form-select" name="autor" id="autor">
-                    <option selected><?php echo $libro[0]->id_autor; ?></option>
-                    <option value="1">Gabriel Garcia Marquez</option>
-                    <option value="2">José Saramago</option>
-                    <option value="3">Dan Brown</option>
-                    <option value="4">John Ronald Reuel Tolkien</option>
+                    <option selected><?php echo $libro[0]->autor; ?></option>
+
+                    <?php
+                    
+                    foreach (Autor::getAutores() as $autor) {
+                        $autorStr = $autor->nombre.' '.$autor->apellido;
+                        if ( $autorStr == $libro[0]->autor) {
+                            continue;
+                        }
+                    ?>
+                        <option value=<?php echo $autor->id_autor; ?>><?php echo $autorStr; ?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -57,4 +84,4 @@
 
     </div>
 
-</div>
+</div> -->

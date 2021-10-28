@@ -12,8 +12,8 @@ class ControladorLibros{
 
     public function inicio(){
 
-        $libros = Libros::getLibros();
-        $librosListados = Libros::ListarLibros($libros);
+        // $libros = Libros::getLibros();
+        $librosListados = Libros::ListarLibros();
         include_once("vistas/libros/inicio.php");
     }
 
@@ -49,7 +49,7 @@ class ControladorLibros{
 
         }
         
-        $libro = Libros::buscarLibro($_GET['id_libro']);
+        $libro = Libros::buscarLibro($_GET['id']);
         include_once("vistas/libros/editar.php");
     }
 

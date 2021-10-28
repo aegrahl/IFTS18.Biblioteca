@@ -14,9 +14,7 @@
     <tbody>
 
         <?php
-            $cantidad = count($librosListados);
-            print_r($cantidad);
-                foreach ($librosListados as $libro) {
+            foreach ($librosListados as $libro) {
         ?>
             <tr>
                 <td><?php echo $libro->id_libro; ?></td>

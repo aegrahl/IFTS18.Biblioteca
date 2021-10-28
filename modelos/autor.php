@@ -45,7 +45,7 @@ class Autor extends Persona{
 
         $connectionBD = BD::crearInstancia();
         $sql=$connectionBD->prepare("UPDATE autores SET nombre=?, apellido=? WHERE id_autor=?;");
-        $sql->execute([$nombre, $apellido, $id_autord]);
+        $sql->execute([$nombre, $apellido, $id_autor]);
     }
 
 
