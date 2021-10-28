@@ -36,6 +36,7 @@
             return $listaLibros;
         }
 
+        
         public static function buscarLibro($id) {
             
             $connectionBD = BD::crearInstancia();
