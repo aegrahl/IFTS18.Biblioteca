@@ -14,7 +14,7 @@ class Editorial{
 // Metodos
     public static function crearEditorial($nombre){
         $conexionDB = BD::crearInstancia();
-        $sql= $conexionDB->prepare("INSERT INTO editoriales(nombre) VALUES(?)");
+        $sql= $conexionDB->prepare("INSERT INTO editoriales(nombre) VALUES(?);");
         $sql->execute([$nombre]);
     }
 
@@ -31,17 +31,34 @@ class Editorial{
         $connectionBD = BD::crearInstancia();
         $sql = $connectionBD->prepare("SELECT * FROM editoriales WHERE id_editorial=?;");
         $sql->execute([$id_editorial]);
-        $editoriales = $sql->fetchAll(PDO::FETCH_OBJ);
+        $editorial = $sql->fetchAll(PDO::FETCH_OBJ);
         
-        return $editoriales;
+        return $editorial[0];
     }
 
-    public static function editarAutor($id_editorial, $nombre) {
+    public static function editarEditorial($id_editorial,$nombre) {
 
         $connectionBD = BD::crearInstancia();
         $sql=$connectionBD->prepare("UPDATE editoriales SET nombre=? WHERE id_editorial=?;");
-        $sql->execute([$nombre, $id_editoriald]);
+        $sql->execute([$nombre, $id_editorial]);
     }
+
+
+    public static function eliminarEditorial($id_editorial){
+        $connectionBD = BD::crearInstancia();
+        $sql=$connectionBD->prepare("DELETE FROM editoriales WHERE id_editorial='$id_editorial'");
+        //$sql->bindParam("s",$id_editorial);
+        $sql->execute();
+    }
+    // public static function ListarEditoriales(array $editoriales) {
+            
+    //     $connectionBD = BD::crearInstancia();
+
+    //     $sql = $connectionBD->query("select * from editoriales");
+    //     $sql->execute();
+    //     $editorialesAretornar = $sql->fetchAll(PDO::FETCH_OBJ);
+    //     return $editorialesAretornar;
+    // }
 
 
 

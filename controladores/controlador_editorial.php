@@ -1,59 +1,59 @@
 <?php
 
-include_once('modelos/libros.php');
+include_once('modelos/editorial.php');
 include_once('conexion.php');
 
 BD::crearInstancia();
 
-class ControladorLibros{
+class ControladorEditorial{
 
     public function inicio(){
-
-        $libros = Libros::getLibros();
-
-        include_once("vistas/libros/inicio.php");
+        $editoriales = Editorial::getEditoriales();
+        include_once("vistas/editorial/inicio.php");
     }
 
     public function crear(){
-
-        if($_GET){
-            //Probando 
-            $autores = Autor::getAutores();
-
-        }
         if($_POST) {
-            Libros::crearLibro($_POST['titulo'], $_POST['genero'], $_POST['editorial'],$_POST['autor']);
+            Editorial::crearEditorial($_POST['nombre']);
             print_r($_POST);
-            header('Location: ./?controlador=libros&accion=inicio');
+            header('Location: ./?controlador=editorial&accion=inicio');
         }
 
-        include_once("vistas/libros/crear.php");
+        include_once("vistas/editorial/crear.php");
     }
 
     public function buscar(){
 
-        $libro = Libros::buscarLibro($_GET['id']);
-        include_once("vistas/libros/editar.php");
+        $editorial = Editorial::buscarEditorial($_GET['id']);
+        include_once("vistas/editorial/editar.php");
     }
 
     public function editar(){
 
-        if($_POST){
-            Libros::editar($_POST['id'], $_POST['titulo'],$_POST['genero'],$_POST['editorial'],$_POST['autor']);
-            header('Location: ./?controlador=libros&accion=inicio');
+            if($_GET){
+                $editorial = Editorial::buscarEditorial($_GET['id_editorial']);
+                print_r($editorial);
+                include_once("vistas/editorial/editar.php");
+               // header('Location:./?controlador=editorial&accion=editar');
+            }
 
-        }
-        
-        $libro = Libros::buscarLibro($_GET['id']);
-        include_once("vistas/libros/editar.php");
+            if($_POST){
+                print_r($_POST);
+                Editorial::editarEditorial($_POST['id_editorial'],$_POST['nombre']);
+                header('Location: ./?controlador=editorial&accion=inicio');
+            }
+
     }
-
-    
 
     public function eliminar(){
 
-        Libros::eliminarLibro($_GET['id']);
-        header('Location:./?controlador=libros&accion=inicio');
+        if($_GET){
+            print_r($_GET);
+            Editorial::eliminarEditorial($_GET['id_editorial']);
+           header('Location:./?controlador=editorial&accion=inicio');
+        }
+
+
     }
 
 }
