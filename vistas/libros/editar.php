@@ -62,6 +62,7 @@
                             continue;
                         }
                     ?>
+                    
                         <option value=<?php echo $autor->id_autor; ?>><?php echo $autorStr; ?></option>
                     <?php
                     }
