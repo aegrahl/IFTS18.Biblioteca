@@ -12,11 +12,11 @@
 
             <div class="mb-3">
                 <label for="genero" class="form-label">Genero: </label>
-                <select required class="form-select" name="genero" id="genero">
+                <select required class="form-select" name="genero" id="genero" class="form-select">
                     <option selected><?php echo $libro[0]->gen_nombre; ?></option>
                     
                     <?php
-                    foreach (Generos::getgeneros() as $genero) {
+                    foreach (Genero::getgeneros() as $genero) {
                         Print_r($genero->nombre);
                         if ($genero->nombre == $libro[0]->gen_nombre) {
                             continue;
@@ -31,7 +31,7 @@
 
             <div class="mb-3">
                 <label for="editorial" class="form-label">Editorial:</label>
-                <select required class="form-select" name="editorial" id="editorial">
+                <select required class="form-select" name="editorial" id="editorial" class="form-select">
                     <option selected ><?php echo $libro[0]->ed_nombre; ?></option>
                     
                     <?php
@@ -51,7 +51,7 @@
 
             <div class="mb-3">
                 <label for="autor" class="form-label">Autor:</label>
-                <select required class="form-select" name="autor" id="autor">
+                <select required class="form-select" name="autor" id="autor" class="form-select">
                     <option selected><?php echo $libro[0]->autor; ?></option>
 
                     <?php
@@ -77,3 +77,29 @@
     </div>
 
 </div>
+
+
+<script>
+$(function(){
+
+    const config = {
+    search: true, // Toggle search feature. Default: false
+    creatable: false, // Creatable selection. Default: false
+    clearable: false, // Clearable selection. Default: false
+    maxHeight: '360px', // Max height for showing scrollbar. Default: 360px
+    size: '', // Can be "sm" or "lg". Default ''
+}
+
+
+let idselect=['#autor','#editorial','#genero'];
+idselect.forEach(addSearch);
+
+function addSearch(foobar){
+    dselect(document.querySelector(foobar), config)
+}
+
+});
+
+
+
+</script>

@@ -25,7 +25,7 @@
             <div class="mb-3">
                 <!-- Aca tiene que ir un select list, falta crear el mvc de editorial  -->
                 <label for="id_editorial" class="form-label">Editorial: </label>
-                <select required class="form-select" name="id_editorial" id="id_editorial">
+                <select required class="form-select" name="id_editorial" id="id_editorial" class="form-select">
                 <?php
                 foreach ($editoriales as $editorial){
                     echo "<option value='$editorial->id_editorial'>$editorial->nombre $autor->apellido</option>"; 
@@ -38,7 +38,7 @@
             <div class="mb-3">
                 <!-- Aca tiene que ir un select list, falta crear el mvc de autor  -->
                 <label for="id_autor" class="form-label">Autor: </label>
-                <select required class="form-select" name="id_autor" id="id_autor">
+                <select required class="form-select" name="id_autor" id="id_autor" class="form-select">
                 <?php
                 foreach ($autores as $autor){
                     echo "<option value='$autor->id_autor'>$autor->nombre $autor->apellido</option>"; 
@@ -47,7 +47,36 @@
                 </select>
             </div>
 
+
+
             <input name="" id="" class="btn btn-success" type="submit" value="Agregar libro">
         </form>
     </div>
 </div>
+
+
+
+<script>
+$(function(){
+
+    const config = {
+    search: true, // Toggle search feature. Default: false
+    creatable: false, // Creatable selection. Default: false
+    clearable: false, // Clearable selection. Default: false
+    maxHeight: '360px', // Max height for showing scrollbar. Default: 360px
+    size: '', // Can be "sm" or "lg". Default ''
+}
+
+
+let idselect=['#id_autor','#id_editorial','#id_genero'];
+idselect.forEach(addSearch);
+
+function addSearch(foobar){
+    dselect(document.querySelector(foobar), config)
+}
+
+});
+
+
+
+</script>

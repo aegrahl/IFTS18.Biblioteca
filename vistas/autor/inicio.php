@@ -20,8 +20,8 @@
             <td><?php echo $autor->apellido; ?></td>
             <td>
                 <div class="btn-group" role="group" aria-label="">
-                <a href="?controlador=autor&accion=editar&id=<?php echo $autor->id_autor; ?>" class="btn btn-warning ">Editar</a>
-                <a href="?controlador=autor&accion=eliminar&id=<?php echo $autor->id_autor; ?>" class="btn btn-danger ">Borrar</a>
+                <a href="?controlador=autor&accion=editar&id_autor=<?php echo $autor->id_autor; ?>" class="btn btn-warning ">Editar</a>
+                <a href="?controlador=autor&accion=eliminar&id_autor=<?php echo $autor->id_autor; ?>" class="btn btn-danger ">Borrar</a>
                 </div>
             </td>
         </tr>

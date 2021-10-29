@@ -1,6 +1,6 @@
 <?php
 
-class Generos{
+class Genero{
 
     public $id_genero;
     public $nombre;
@@ -33,16 +33,23 @@ class Generos{
         $sql->execute([$id_genero]);
         $generos = $sql->fetchAll(PDO::FETCH_OBJ);
         
-        return $generos;
+        return $generos[0];
     }
 
-    public static function editarAutor($id_genero, $nombre) {
+    public static function editarGenero($id_genero, $nombre) {
 
         $connectionBD = BD::crearInstancia();
         $sql=$connectionBD->prepare("UPDATE generos SET nombre=? WHERE id_genero=?;");
-        $sql->execute([$nombre, $id_generod]);
+        $sql->execute([$nombre, $id_genero]);
     }
 
+        
+    public static function eliminarGenero($id_genero){
+        $connectionBD = BD::crearInstancia();
+        $sql=$connectionBD->prepare("DELETE FROM generos WHERE id_genero='$id_genero'");
+        //$sql->bindParam("s",$id_editorial);
+        $sql->execute();
+    }
 
 
 }

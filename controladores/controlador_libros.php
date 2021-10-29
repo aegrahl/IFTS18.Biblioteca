@@ -4,7 +4,7 @@ include_once('modelos/libros.php');
 include_once('conexion.php');
 include_once('modelos/autor.php');
 include_once('modelos/editorial.php');
-include_once('modelos/generos.php');
+include_once('modelos/genero.php');
 
 BD::crearInstancia();
 
@@ -23,7 +23,7 @@ class ControladorLibros{
             //Probando 
             $autores = Autor::getAutores();
             $editoriales = Editorial::getEditoriales();
-            $generos = Generos::getGeneros();
+            $generos = Genero::getGeneros();
 
         }
         if($_POST) {
