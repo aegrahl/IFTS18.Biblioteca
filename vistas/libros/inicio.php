@@ -24,8 +24,8 @@
                 <td><?php echo $libro->autor; ?></td>
                 <td>
                     <div class="btn-group" role="group" aria-label="">
-                    <a href="?controlador=libros&accion=editar&id=<?php echo $libro->id_libro; ?>" class="btn btn-warning ">Editar</a>
-                    <a href="?controlador=libros&accion=eliminar&id=<?php echo $libro->id_libro;  ?>" class="btn btn-danger ">Borrar</a>
+                    <a href="?controlador=libros&accion=editar&id_libro=<?php echo $libro->id_libro; ?>" class="btn btn-warning ">Editar</a>
+                    <a href="?controlador=libros&accion=eliminar&id_libro=<?php echo $libro->id_libro;  ?>" class="btn btn-danger ">Borrar</a>
                     </div>
                 </td>
             </tr>

@@ -40,7 +40,7 @@
         public static function buscarLibro($id) {
             
             $connectionBD = BD::crearInstancia();
-            $sql = $connectionBD->prepare("SELECT Lib.titulo titulo, Gen.nombre gen_nombre, Ed.nombre ed_nombre, concat(Aut.nombre,' ',Aut.apellido) autor FROM libros Lib
+            $sql = $connectionBD->prepare("SELECT Lib.Id_libro id_libro, Lib.titulo titulo, Gen.id_genero id_genero, Gen.nombre gen_nombre, Ed.Id_editorial id_editorial, Ed.nombre ed_nombre, Aut.Id_autor id_autor, concat(Aut.nombre,' ',Aut.apellido) autor FROM libros Lib
                                            JOIN generos Gen ON Lib.id_genero = Gen.id_genero
                                            JOIN editoriales Ed ON Lib.id_editorial = Ed.id_editorial
                                            JOIN autores Aut ON Lib.id_autor = Aut.id_autor
@@ -48,21 +48,22 @@
             $sql->execute([$id]);
             $libro = $sql->fetchAll(PDO::FETCH_OBJ);
             
-            return $libro;
+            return $libro[0];
         }
 
-        public static function editar($id, $titulo, $genero, $editorial, $autor) {
+        public static function editarLibro($id_libro, $titulo, $id_genero, $id_editorial, $id_autor) {
 
             $connectionBD = BD::crearInstancia();
             $sql=$connectionBD->prepare("UPDATE libros SET titulo=?, id_autor=?, id_genero=?, id_editorial=? WHERE id_libro=?;");
-            $sql->execute([$titulo, $genero, $editorial, $autor, $id]);
+            $sql->execute([$titulo, $id_autor, $id_genero, $id_editorial, $id_libro]);
         }
 
-        public static function eliminarLibro($id) {
+        public static function eliminarLibro($id_libro) {
 
             $connectionBD = BD::crearInstancia();
-            $sql= $connectionBD->prepare("DELETE FROM libros WHERE id=?;");
-            $sql->execute([$id]);
+            $sql= $connectionBD->prepare("DELETE FROM libros WHERE id_libro='$id_libro'");
+            $sql->execute();
+            $sql = null;
         }
 
     }

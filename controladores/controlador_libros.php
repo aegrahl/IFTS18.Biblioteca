@@ -43,24 +43,31 @@ class ControladorLibros{
 
     public function editar(){
 
-        if($_POST){
-            Libros::editar($_POST['id_libro'], $_POST['titulo'],$_POST['id_genero'],$_POST['id_editorial'],$_POST['id_autor']);
-            header('Location: ./?controlador=libros&accion=inicio');
-
+        if($_GET){
+            $libro = libros::buscarLibro($_GET['id_libro']);
+            //print_r($libro);
+            include_once("vistas/libros/editar.php");
+           // header('Location:./?controlador=editorial&accion=editar');
         }
-        
-        $libro = Libros::buscarLibro($_GET['id']);
-        include_once("vistas/libros/editar.php");
+
+        if($_POST){
+            //print_r($_POST);
+            Libros::editarLibro($_POST['id_libro'], $_POST['titulo'], $_POST['id_genero'], $_POST['id_editorial'],$_POST['id_autor']);
+            //header('Location: ./?controlador=editorial&accion=inicio');
+            // como no paraba de arrojar error con header ....
+            echo '<script> window.location="./?controlador=libros&accion=inicio"</script>';
+        }
     }
 
     
 
     public function eliminar(){
-
-        Libros::eliminarLibro($_GET['id_libro']);
-        header('Location:./?controlador=libros&accion=inicio');
+        if($_GET){
+            print_r($_GET);
+            Libros::eliminarLibro($_GET['id_libro']);
+            header('Location:./?controlador=libros&accion=inicio');
+        }
     }
 
 }
-
 ?>

@@ -50,7 +50,7 @@ class ControladorEditorial{
         if($_GET){
             print_r($_GET);
             Editorial::eliminarEditorial($_GET['id_editorial']);
-           header('Location:./?controlador=autor&accion=inicio');
+            header('Location:./?controlador=autor&accion=inicio');
         }
 
 
