@@ -19,15 +19,37 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link" href="#">Home</a>
-            <a class="nav-item nav-link" href="?controlador=libros&accion=inicio">Libros</a>
-            <a class="nav-item nav-link" href="?controlador=autor&accion=inicio">Autores</a>
-            <a class="nav-item nav-link" href="?controlador=editorial&accion=inicio">Editoriales</a>
-            <a class="nav-item nav-link" href="?controlador=generos&accion=inicio">Generos</a>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+        <a class="nav-item nav-link" href="?controlador=libros&accion=inicio">Libros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" href="?controlador=autor&accion=inicio">Autores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" href="?controlador=editorial&accion=inicio">Editoriales</a>
+      </li>
+      <li>
+        <a class="nav-item nav-link" href="?controlador=generos&accion=inicio">Generos</a>
+      </li>
+      <li>
+        <a class="nav-item nav-link" href="?controlador=usuarios&accion=inicio">Usuarios</a>
+      </li>
+    </ul>
+    <form class="d-flex">
+      <input class="form-control me-2" type="text" placeholder="Search">
+      <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
     
     <div class="container">
         <div class="row">

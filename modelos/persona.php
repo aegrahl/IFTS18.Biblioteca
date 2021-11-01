@@ -4,11 +4,15 @@ class Persona{
 
     public $nombre;
     public $apellido;
+    public $Email;
+    public $Telefono;
     // private $nacionalidad;
 
-    public function __construct($nombre, $apellido) {
+    public function __construct($nombre, $apellido, $Email, $Telefono){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
+        $this->Email = $Email;
+        $this->Telefono = $Telefono;
     }
 
     // function set_nombre($nombre) {
