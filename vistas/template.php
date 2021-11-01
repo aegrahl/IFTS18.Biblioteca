@@ -28,7 +28,9 @@
             <a class="nav-item nav-link" href="?controlador=generos&accion=inicio">Generos</a>
         </div>
     </nav>
-    
+    <?php
+echo session_id();
+?>
     <div class="container">
         <div class="row">
             <div class="col-12">
