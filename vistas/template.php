@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -28,9 +32,10 @@
             <a class="nav-item nav-link" href="?controlador=generos&accion=inicio">Generos</a>
         </div>
     </nav>
-    <?php
-echo session_id();
-?>
+    
+    <?php if(!isset($_SESSION)){?>
+    <p>Bienvenido!! <?php echo("{$_SESSION['nombre']}"."<br />");?></p>
+    <?php }?>
     <div class="container">
         <div class="row">
             <div class="col-12">

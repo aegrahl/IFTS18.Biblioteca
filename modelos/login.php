@@ -17,14 +17,22 @@ public function verifyUser(){
     
     $connectionBD=BD::crearInstancia();
     try{
-        $sql = $connectionBD->query("SELECT * FROM usuarios WHERE email = '$this->user' AND password = '$this->password'");
-        $result = $sql->fetchAll(PDO::FETCH_OBJ);
-        if($result != null){
-            if($result[0]->id_usuario != null){
-            return true;
+        $connectionBD = BD::crearInstancia();
+        $sql = $connectionBD->prepare("SELECT * FROM usuarios where email=?;");
+        $sql->execute([$this->user]);
+        $result = $sql->fetchall(PDO::FETCH_OBJ);
+        if (!$result) {
+            echo '<p class="error">Usuario erroneo!</p>';
+        } else {
+            // ponerlo despues if (password_verify($password, $result['password'])) {
+            if ($this->password == $result[0]->password) {
+                session_start();
+                $_SESSION['id_usuario'] = $result[0]->id_usuario;
+                $_SESSION['nombre'] = $result[0]->nombre;
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            return false;
         }
     }catch(PDOException $e){
         echo $e->getMessage();

@@ -27,11 +27,11 @@ class ControladorLogin {
                 $login = new Login($user, $password);
                 $isValid = $login->verifyUser(); 
                 if($isValid){
-                    session_start();
-                    $_SESSION['user'] = $user;
+                    echo '<p class="success">Exito!</p>';
                     echo '<script>console.log("Ingreso"); </script>';
                     Header("Location: index.php");
                 }else{
+                    echo '<p class="error">La contraseña es incorrecta!</p>';
                     echo '<script>alert("Usuario o contraseña incorrectos"); </script>';
                 }
             } else {
@@ -42,7 +42,8 @@ class ControladorLogin {
 
     public function logout(){
         session_destroy();
-        header("Location: index.php");
+        echo '<script>alert("Sesión cerrada"); </script>';
+        //header("Location: index.php");
     }
 
 
