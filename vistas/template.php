@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -51,6 +55,9 @@
   </div>
 </nav>
     
+    <?php if(!isset($_SESSION)){?>
+    <p>Bienvenido!! <?php echo("{$_SESSION['nombre']}"."<br />");?></p>
+    <?php }?>
     <div class="container">
         <div class="row">
             <div class="col-12">

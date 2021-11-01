@@ -10,8 +10,12 @@ class BD{
             
             $opcionesPDO[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
             
-            //Instancia MySQL en ServerCloud
-            self::$instancia= new PDO( "mysql:host=$DB_HOST;dbname=$DB_DATABASE", $DB_USERNAME,$DB_PASSWORD, $opcionesPDO);
+            try {
+                //Instancia MySQL en ServerCloud
+                self::$instancia= new PDO( "mysql:host=$DB_HOST;dbname=$DB_DATABASE", $DB_USERNAME,$DB_PASSWORD, $opcionesPDO);
+            } catch (PDOException $e) {
+                echo "Falló la conexión: " . $e->getMessage();
+            }
 
 
         }
