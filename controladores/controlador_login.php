@@ -14,12 +14,8 @@ class ControladorLogin {
 
     public function inicio(){
 
-        
-
             include_once("vistas/login/login.php");
       
-
-
         if($_POST){
             $user = $_POST['user'];
             $password = $_POST['password'];
@@ -28,9 +24,11 @@ class ControladorLogin {
                 $login = new Login($user, $password);
                 $isValid = $login->verifyUser(); 
                 if($isValid){
-                    echo '<p class="success">Exito!</p>';
-                    echo '<script>console.log("Ingreso"); </script>';
-                    //Header("Location: index.php");
+                    //echo '<p class="success">Exito!</p>';
+                   // echo '<script>console.log("Ingreso"); </script>';
+                    Header("Location: index.php");
+                    //window.location.replace("http://nuevapagina.php/");
+                    die();
                 }else{
                     echo '<p class="error">La contraseña es incorrecta!</p>';
                     echo '<script>alert("Usuario o contraseña incorrectos"); </script>';
@@ -44,8 +42,14 @@ class ControladorLogin {
     public function logout(){
         $_SESSION = array();
         session_destroy();
-        echo '<script>alert("Sesión cerrada"); </script>';
-        //header("Location: index.php");
+        //echo '<script>alert("Sesión cerrada"); </script>';
+        include_once("vistas/template.php");
+        //require_once("vistas/template.php");
+        Header("Location: index.php");
+    }
+
+    public function registro(){
+        include_once("vistas/login/registro.php");
     }
 
 

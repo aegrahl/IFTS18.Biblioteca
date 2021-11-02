@@ -26,7 +26,6 @@
                     <div class="col-12">
                         <p class="text-center mb-0">Todavía no tenes una cuenta? <a href="#">Resgistrate</a></p>
                     </div>
-                    <a name="" id="" class="btn btn-secondary" href="?controlador=login&accion=logout" role="button">Cerrar Sesion</a>
                 </div>
             </div>
         </div>

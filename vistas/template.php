@@ -46,6 +46,9 @@
       <li>
         <a class="nav-item nav-link" href="?controlador=usuarios&accion=inicio">Usuarios</a>
       </li>
+      <li>
+        <a class="nav-item nav-link" href="?controlador=stocklibros&accion=inicio">Stock</a>
+      </li>
     </ul>
     <form class="d-flex">
       <input class="form-control me-2" type="text" placeholder="Search">
@@ -54,11 +57,14 @@
     </div>
   </div>
   <?php if($_SESSION){?>
-  <div class="">
-    <span class="text-white">Bienvenido!!!  <?php echo ucfirst($_SESSION['nombre']) ?><br/></span>
-    <a class="navbar-brand" href="#">
-      <img src="/statics/img/generic_avatar.png" alt="Logo" style="width:40px;" class="rounded-pill">
-    </a>
+  <div class=" row">
+    <span class="text-white text-center">Bienvenido <?php echo ucfirst($_SESSION['nombre']) ?><br/></span>
+    <div class="d-flex justify-content-center">
+      <a class="navbar-brand" href="#">
+        <img src="/statics/img/generic_avatar.png" alt="Logo" style="width:40px;" class="rounded-pill">
+      </a>
+    </div>
+    <a class="text-center" href="?controlador=login&accion=logout">Cerrar Sesion</a>
   </div>
   <?php }?>
 </nav>
