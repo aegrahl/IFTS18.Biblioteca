@@ -26,7 +26,6 @@ public function verifyUser(){
         } else {
             // ponerlo despues if (password_verify($password, $result['password'])) {
             if ($this->password == $result[0]->password) {
-                session_start();
                 $_SESSION['id_usuario'] = $result[0]->id_usuario;
                 $_SESSION['nombre'] = $result[0]->nombre;
                 return true;

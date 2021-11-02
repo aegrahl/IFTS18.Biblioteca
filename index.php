@@ -2,7 +2,7 @@
 
 // validar Switcg para verificar controladores?
 // acceso default
-$controlador="libros";
+$controlador="login";
 $accion="inicio";
 
 

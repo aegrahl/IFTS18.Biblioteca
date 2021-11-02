@@ -1,7 +1,7 @@
-<?php
-// Start the session
-session_start();
-?>
+  <?php
+  // Start the session
+  session_start();
+  ?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -25,7 +25,7 @@ session_start();
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <a class="navbar-brand" href="/index.php">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,11 +53,16 @@ session_start();
       </form>
     </div>
   </div>
+  <?php if($_SESSION){?>
+  <div class="">
+    <span class="text-white">Bienvenido!!!  <?php echo ucfirst($_SESSION['nombre']) ?><br/></span>
+    <a class="navbar-brand" href="#">
+      <img src="/statics/img/generic_avatar.png" alt="Logo" style="width:40px;" class="rounded-pill">
+    </a>
+  </div>
+  <?php }?>
 </nav>
-    
-    <?php if(!isset($_SESSION)){?>
-    <p>Bienvenido!! <?php echo("{$_SESSION['nombre']}"."<br />");?></p>
-    <?php }?>
+
     <div class="container">
         <div class="row">
             <div class="col-12">

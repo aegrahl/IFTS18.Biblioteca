@@ -14,9 +14,10 @@ class ControladorLogin {
 
     public function inicio(){
 
-        if($_GET){
+        
+
             include_once("vistas/login/login.php");
-        }
+      
 
 
         if($_POST){
@@ -29,7 +30,7 @@ class ControladorLogin {
                 if($isValid){
                     echo '<p class="success">Exito!</p>';
                     echo '<script>console.log("Ingreso"); </script>';
-                    Header("Location: index.php");
+                    //Header("Location: index.php");
                 }else{
                     echo '<p class="error">La contraseña es incorrecta!</p>';
                     echo '<script>alert("Usuario o contraseña incorrectos"); </script>';
@@ -41,6 +42,7 @@ class ControladorLogin {
     }
 
     public function logout(){
+        $_SESSION = array();
         session_destroy();
         echo '<script>alert("Sesión cerrada"); </script>';
         //header("Location: index.php");
