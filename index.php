@@ -2,7 +2,7 @@
 
 // validar Switcg para verificar controladores?
 // acceso default
-$controlador="login";
+$controlador="welcome";
 $accion="inicio";
 
 

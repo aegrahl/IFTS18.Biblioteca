@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://unpkg.com/@jarstone/dselect/dist/css/dselect.css">
     <!-- <script src="https://unpkg.com/@jarstone/dselect/dist/js/dselect.js"></script> -->
     <script src="/statics/scripts/dselect.js"></script> 
-    
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   </head>
   <body>
 
@@ -51,8 +52,8 @@
       </li>
     </ul>
     <form class="d-flex">
-      <input class="form-control me-2" type="text" placeholder="Search">
-      <button class="btn btn-primary" type="button">Search</button>
+      <!-- <input class="form-control me-2" type="text" placeholder="Search">
+      <button class="btn btn-primary" type="button">Search</button> -->
       </form>
     </div>
   </div>
@@ -66,8 +67,14 @@
     </div>
     <a class="text-center" href="?controlador=login&accion=logout">Cerrar Sesion</a>
   </div>
-  <?php }?>
+  <?php } else {?>
+    <a class="navbar-brand" href="?controlador=login&accion=inicio"><i class="fas fa-door-open"></i>Login</a>
+    <?php } ?>
 </nav>
+
+<!-- sidebar -->
+
+
 
     <div class="container">
         <div class="row">
@@ -87,13 +94,6 @@
 <script>
 $(function(){
 
-    const config = {
-    search: true, // Toggle search feature. Default: false
-    creatable: false, // Creatable selection. Default: false
-    clearable: false, // Clearable selection. Default: false
-    maxHeight: '360px', // Max height for showing scrollbar. Default: 360px
-    size: '', // Can be "sm" or "lg". Default ''
-}
 
 
 let idselect=['#id_autor','#id_editorial','#id_genero'];
@@ -102,6 +102,11 @@ idselect.forEach(addSearch);
 function addSearch(foobar){
     dselect(document.querySelector(foobar), config)
 }
+
+
+
+
+
 
 });
 

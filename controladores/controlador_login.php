@@ -26,7 +26,9 @@ class ControladorLogin {
                 if($isValid){
                     //echo '<p class="success">Exito!</p>';
                    // echo '<script>console.log("Ingreso"); </script>';
-                    Header("Location: index.php");
+                    //Header("Location: index.php");
+                    echo '<script>window.location.href = "index.php";</script>';
+                   // Header('Location: ./?controlador=welcome&accion=inicio');
                     //window.location.replace("http://nuevapagina.php/");
                     die();
                 }else{

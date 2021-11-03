@@ -1,3 +1,9 @@
+
+
+
+<div class="d-flex justify-content-center align-items-center vh-100" >
+
+<?php if(!$_SESSION){?>
 <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4">
@@ -30,3 +36,9 @@
             </div>
         </div>
     </div>
+
+</div>
+
+<?php }else{
+    header("Location: index.php");
+}?>
