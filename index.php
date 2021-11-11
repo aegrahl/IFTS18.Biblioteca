@@ -14,5 +14,7 @@ if( (isset($_GET['controlador']) && isset($_GET['accion'])) && (!empty($_GET['co
 }
 
 
-require_once("vistas/template.php");
+        session_start();
+        require_once("vistas/template.php");
+
 ?>

@@ -28,6 +28,21 @@ class Usuario extends Persona{
         }
     }
 
+    
+    public static function createCommonUser($nombre, $apellido, $email, $telefono, $password,){
+        $rol = 2;
+        $conexionDB = BD::crearInstancia();
+        $sql= $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, rol) VALUES(?,?,?,?,?,?);");
+        try{
+            $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $rol));
+            return true;
+        }catch(PDOException $e){
+            return false;
+        }finally{
+            $sql = null;
+        }
+    }
+
     public static function getUsers(){
         $conexionDB = BD::crearInstancia();
         $sql = $conexionDB->prepare("SELECT * FROM usuarios");

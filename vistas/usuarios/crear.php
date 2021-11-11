@@ -1,3 +1,6 @@
+<div class="usuarios">
+
+<div class="card col-12 col-lg-6 m-5">
 <div class="card">
     <div class="card-header">
         Agregar Usuario
@@ -58,6 +61,8 @@
     </div>
 </div>
 
+</div>
+</div>
 <script>
     // validate the password fields and if they are the same do the submit
 

@@ -1,4 +1,6 @@
-<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=libros&accion=crear" role="button">Agregar Libro</a>
+<div class="autores">
+    <a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=libros&accion=crear" role="button">Agregar Libro</a>
+        <div class="card col-12 col-lg-6 m-5">
 
 <table class="table">
     <thead>
@@ -35,3 +37,5 @@
         
     </tbody>
 </table>
+</div>
+    </div>

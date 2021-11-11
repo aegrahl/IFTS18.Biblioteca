@@ -28,6 +28,7 @@ public function verifyUser(){
             if ($this->password == $result[0]->password) {
                 $_SESSION['id_usuario'] = $result[0]->id_usuario;
                 $_SESSION['nombre'] = $result[0]->nombre;
+                $_SESSION['rol'] = $result[0]->rol;
                 return true;
             } else {
                 return false;

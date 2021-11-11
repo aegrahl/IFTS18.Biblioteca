@@ -1,3 +1,5 @@
+<div class="autores">
+        <div class="card col-12 col-lg-6 m-5">
 <form action="" method="post">
 
         <div class="mb-3">
@@ -71,7 +73,8 @@
             <a href="?controlador=libros&accion=inicio" class="btn btn-danger ">Cancelar</a>
 
 </form>
-
+</div>
+    </div>
 
 <script>
 $(function(){

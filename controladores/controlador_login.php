@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include_once("modelos/login.php");
+include_once('modelos/usuario.php');
 include_once("conexion.php");
 
 BD::crearInstancia();
@@ -44,18 +45,27 @@ class ControladorLogin {
     public function logout(){
         $_SESSION = array();
         session_destroy();
-        //echo '<script>alert("Sesión cerrada"); </script>';
-        include_once("vistas/template.php");
-        //require_once("vistas/template.php");
-        Header("Location: index.php");
+        echo '<script>alert("Sesión cerrada"); </script>';
+        echo '<script> window.location="index.php"</script>';
     }
+
 
     public function registro(){
+        if($_POST){
+            $response = Usuario::createCommonUser($_POST['nombre'], $_POST['apellido'], $_POST['email'], $_POST['telefono'], $_POST['password']);
+            $rol=2;
+            if($response){
+                header('Location: ./?controlador=login&accion=inicio');
+                // no llega a mostrarlo
+                //echo '<script> alert("Se creo el usuario") </script>';
+            }else{
+                echo '<script> alert("Error al crear el usuario") </script>';
+              
+            }
+        }
+
         include_once("vistas/login/registro.php");
     }
-
-
-    
 
 }
 
