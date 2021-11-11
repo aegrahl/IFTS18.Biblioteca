@@ -13,8 +13,8 @@ if( (isset($_GET['controlador']) && isset($_GET['accion'])) && (!empty($_GET['co
         $accion = $_GET["accion"];
 }
 
-
-        session_start();
+        // Si no hay una sesion activa la inicia
+        if(!isset($_SESSION)){session_start();}
         require_once("vistas/template.php");
 
 ?>

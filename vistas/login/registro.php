@@ -32,7 +32,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="email">Tu email</label>
-                      <input required type="email" id="email" name="email"  class="form-control" />
+                      <input required placeholder="email" type="email" id="email" name="email"  class="form-control" />
                       <span id="errorEmail" class="bg-warning text-primary" style="font-size:0.5em"></span>
                     </div>
                   </div>
