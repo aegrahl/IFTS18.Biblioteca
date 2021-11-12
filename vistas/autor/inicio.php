@@ -1,9 +1,11 @@
-<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=autor&accion=crear" role="button">Agregar Autor</a>
+<div class="autores">
+    <a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=autor&accion=crear" role="button">Agregar Autor</a>
+        <div class="card col-12 col-lg-6 m-5">
 
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th fs-2>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Acciones</th>
@@ -31,3 +33,6 @@
 
     </tbody>
 </table>
+
+</div>
+</div>

@@ -56,6 +56,19 @@ class Usuario extends Persona{
         }
     }
 
+    public static function buscarUsuario($id_usuario){
+        $conexionDB = BD::crearInstancia();
+        $sql = $conexionDB->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
+        try{
+            $sql->execute(array($id_usuario));
+            return $sql->fetch(PDO::FETCH_OBJ);
+        }catch(PDOException $e){
+            return false;
+        }finally{
+            $sql = null;
+        }
+    }
+
 
     
 }

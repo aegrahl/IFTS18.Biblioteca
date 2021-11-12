@@ -1,4 +1,7 @@
-<div class="card">
+
+    <div class="usuarios">
+
+<div class="card col-12 col-lg-6 m-5">
     <div class="card-header">
         Editar Autor
     </div>

@@ -61,7 +61,7 @@
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Menu</a>
                         <ul class="dropdown-menu" style="font-size:1em ;padding-left: 0em !; ">
-                          <li><a class="dropdown-item" href="?controlador=autor&accion=inicio">Mis Libros</a></li>
+                          <li><a class="dropdown-item" href="?controlador=stocklibros&accion=mislibros">Mis Libros</a></li>
                           <li><del><a class="dropdown-item" href="?controlador=&accion=">Mi Perfil</a></del></li>
                         </ul>
                     </li>

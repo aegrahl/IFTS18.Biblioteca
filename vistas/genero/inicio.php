@@ -1,17 +1,20 @@
-<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=generos&accion=crear" role="button">Agregar genero</a>
+<div class="autores">
+    <a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=generos&accion=crear" role="button">Agregar genero</a>
+        <div class="card col-12 col-lg-6 m-5">
 
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th fs-2>ID</th>
             <th>Nombre</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
 
         <?php
             $cantidad = count($generos);
-            print_r($cantidad);
+            // print_r($cantidad);
                 foreach ($generos as $genero) {
         ?>
             <tr>
@@ -30,3 +33,5 @@
         
     </tbody>
 </table>
+</div>
+</div>

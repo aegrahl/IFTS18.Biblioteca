@@ -1,3 +1,5 @@
+<div class="autores">
+        <div class="card col-12 col-lg-6 m-5">
 <div class="card">
     <div class="card-header">
         Agregar editorial
@@ -13,4 +15,6 @@
             <input name="" id="" class="btn btn-success" type="submit" value="Agregar editorial">
         </form>
     </div>
+</div>
+</div>
 </div>

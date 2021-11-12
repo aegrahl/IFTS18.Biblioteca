@@ -1,17 +1,19 @@
-<a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=editorial&accion=crear" role="button">Agregar Editorial</a>
-
+<div class="autores">
+    <a name="" id="" class="btn btn-success mb-3 mt-3" href="?controlador=editorial&accion=crear" role="button">Agregar Editorial</a>
+        <div class="card col-12 col-lg-6 m-5">
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th fs-2>ID</th>
             <th>Nombre</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
 
         <?php
             $cantidad = count($editoriales);
-            print_r($cantidad);
+            // print_r($cantidad);
                 foreach ($editoriales as $editorial) {
         ?>
             <tr>
@@ -30,3 +32,6 @@
         
     </tbody>
 </table>
+
+</div>
+</div>

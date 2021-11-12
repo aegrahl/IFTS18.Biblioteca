@@ -15,6 +15,8 @@ include_once('modelos/genero.php');
 class ControladorStockLibros{
 
     public function inicio(){
+        $libros = stockLibros::getLibros();
+        print_r($libros);
         include_once('vistas/stockLibro/inicio.php');
     }
 
@@ -35,6 +37,16 @@ class ControladorStockLibros{
             header('Location: ./?controlador=libros&accion=inicio');
         }
         include_once('vistas/stockLibro/crear.php');
+    }
+
+    public function misLibros(){
+        $misLibros = stockLibros::getMisLibros($_SESSION['id_usuario']);
+        include_once('vistas/stockLibro/misLibros.php');
+    }
+
+    public function setVendido(){
+        stockLibros::setVendido($_GET['id_libro']);
+        header('Location: ./?controlador=stockLibros&accion=misLibros');
     }
 
 
