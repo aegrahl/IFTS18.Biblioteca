@@ -1,75 +1,78 @@
 <?php
 
 include_once('modelos/persona.php');
-class Usuario extends Persona{
+class Usuario extends Persona
+{
     public $Id_usuario;
     public $password;
     public $urlFoto;
     public $rol;
-    
-    public function __construct($nombre, $apellido, $email, $telefono, $password, $id_usuario, $urlFoto, $rol){
+
+    public function __construct($nombre, $apellido, $email, $telefono, $password, $id_usuario, $urlFoto, $rol)
+    {
         parent::__construct($nombre, $apellido, $email, $telefono);
-        $this->Id_usuario = $Id_usuario;
+        $this->Id_usuario = $id_usuario;
         $this->password = $password;
         $this->urlFoto = $urlFoto;
         $this->rol = $rol;
     }
 
-    public static function createUser($nombre, $apellido, $email, $telefono, $password, $urlFoto, $rol){
+    public static function createUser($nombre, $apellido, $email, $telefono, $password, $urlFoto, $rol)
+    {
         $conexionDB = BD::crearInstancia();
-        $sql= $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, url_foto, rol) VALUES(?,?,?,?,?,?,?);");
-        try{
+        $sql = $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, url_foto, rol) VALUES(?,?,?,?,?,?,?);");
+        try {
             $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $urlFoto, $rol));
             return true;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             return false;
-        }finally{
+        } finally {
             $sql = null;
         }
     }
 
-    
-    public static function createCommonUser($nombre, $apellido, $email, $telefono, $password,){
+
+    public static function createCommonUser($nombre, $apellido, $email, $telefono, $password)
+    {
         $rol = 2;
         $conexionDB = BD::crearInstancia();
-        $sql= $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, rol) VALUES(?,?,?,?,?,?);");
-        try{
+        $sql = $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, rol) VALUES(?,?,?,?,?,?);");
+        try {
             $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $rol));
             return true;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             return false;
-        }finally{
+        } finally {
             $sql = null;
         }
     }
 
-    public static function getUsers(){
+    public static function getUsers()
+    {
         $conexionDB = BD::crearInstancia();
         $sql = $conexionDB->prepare("SELECT * FROM usuarios");
-        try{
+        try {
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_OBJ);
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             return false;
-        }finally{
+        } finally {
             $sql = null;
         }
     }
 
-    public static function buscarUsuario($id_usuario){
+    public static function buscarUsuario($id_usuario)
+    {
         $conexionDB = BD::crearInstancia();
         $sql = $conexionDB->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
-        try{
+        try {
             $sql->execute(array($id_usuario));
-            return $sql->fetch(PDO::FETCH_OBJ);
-        }catch(PDOException $e){
+            $usuario = $sql->fetchall(PDO::FETCH_OBJ);
+            return $usuario[0];
+        } catch (PDOException $e) {
             return false;
-        }finally{
+        } finally {
             $sql = null;
         }
     }
-
-
-    
 }
-?>

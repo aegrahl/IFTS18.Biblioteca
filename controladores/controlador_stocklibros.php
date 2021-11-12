@@ -41,7 +41,7 @@ class ControladorStockLibros{
 
     public function misLibros(){
         $misLibros = stockLibros::getMisLibros($_SESSION['id_usuario']);
-        include_once('vistas/stockLibro/misLibros.php');
+        include_once('vistas/stockLibro/mislibros.php');
     }
 
     public function setVendido(){
