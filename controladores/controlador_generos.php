@@ -44,7 +44,6 @@ class ControladorGeneros
         }
 
         if ($_POST) {
-            // print_r($_POST);
             Genero::editarGenero($_POST['id_genero'], $_POST['nombre']);
             echo '<script> window.location="./?controlador=generos&accion=inicio"</script>';
         }
@@ -55,7 +54,6 @@ class ControladorGeneros
 
         Login::isAdmin();
         if ($_GET) {
-            // print_r($_GET);
             Genero::eliminarGenero($_GET['id_genero']);
             echo '<script> window.location="./?controlador=generos&accion=inicio"</script>';
         }

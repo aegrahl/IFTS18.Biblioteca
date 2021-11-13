@@ -80,7 +80,7 @@
                 <?php }
                 } else { ?>
                 <li class="nav-item">
-                    <a class="nav-link active" href="Clase/contacto.html">Contacto</a>
+                    <a class="nav-link active" href="?controlador=welcome&accion=contacto">Contacto</a>
                 </li>
                 <?php } ?>
                 <li class="nav-item">
