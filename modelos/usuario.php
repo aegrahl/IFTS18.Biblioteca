@@ -35,15 +35,21 @@ class Usuario extends Persona
     public static function createCommonUser($nombre, $apellido, $email, $telefono, $password)
     {
         $rol = 2;
-        $conexionDB = BD::crearInstancia();
-        $sql = $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, rol) VALUES(?,?,?,?,?,?);");
-        try {
-            $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $rol));
-            return true;
-        } catch (PDOException $e) {
-            return false;
-        } finally {
-            $sql = null;
+        //verificar si el usuario existe
+        $usuario = Usuario::getUserByEmail($email);
+        if ($usuario == null) {
+            $conexionDB = BD::crearInstancia();
+            $sql = $conexionDB->prepare("INSERT INTO usuarios(nombre, apellido, email, telefono, password, rol) VALUES(?,?,?,?,?,?);");
+            try {
+                $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $rol));
+                return true;
+            } catch (PDOException $e) {
+                return false;
+            } finally {
+                $sql = null;
+            }
+        } else {
+            echo '<script> alert("El usuario ya existe")</script>';
         }
     }
 
@@ -67,6 +73,53 @@ class Usuario extends Persona
         $sql = $conexionDB->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
         try {
             $sql->execute(array($id_usuario));
+            $usuario = $sql->fetchall(PDO::FETCH_OBJ);
+            return $usuario[0];
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $sql = null;
+        }
+    }
+
+    // actualizar un usuario
+    public static function updateUser($id_usuario, $nombre, $apellido, $email, $telefono, $password, $rol)
+    {
+        $conexionDB = BD::crearInstancia();
+        $sql = $conexionDB->prepare("UPDATE usuarios SET nombre = ?, apellido = ?, email = ?, telefono = ?, password = ?, rol = ? WHERE id_usuario = ?");
+        try {
+            $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $rol, $id_usuario));
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $sql = null;
+        }
+    }
+
+
+    //actualizar un usuario comun
+    public static function updateCommonUser($id_usuario, $nombre, $apellido, $email, $telefono, $password)
+    {
+        $conexionDB = BD::crearInstancia();
+        $sql = $conexionDB->prepare("UPDATE usuarios SET nombre = ?, apellido = ?, email = ?, telefono = ?, password = ? WHERE id_usuario = ?");
+        try {
+            $sql->execute(array($nombre, $apellido, $email, $telefono, $password, $id_usuario));
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $sql = null;
+        }
+    }
+
+    //getUserByEmail
+    public static function getUserByEmail($email)
+    {
+        $conexionDB = BD::crearInstancia();
+        $sql = $conexionDB->prepare("SELECT * FROM usuarios WHERE email = ?");
+        try {
+            $sql->execute(array($email));
             $usuario = $sql->fetchall(PDO::FETCH_OBJ);
             return $usuario[0];
         } catch (PDOException $e) {

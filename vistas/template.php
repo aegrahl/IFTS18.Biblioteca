@@ -54,7 +54,7 @@
                     <a class="nav-link active" href="?controlador=stocklibros&accion=inicio">Libros</a>
                 </li>
                 <?php if (isset($_SESSION['rol'])) {
-          if ($_SESSION['rol'] == 1) { ?>
+                    if ($_SESSION['rol'] == 1) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown">Administrador</a>
@@ -72,11 +72,13 @@
                     <ul class="dropdown-menu" style="font-size:1em ;padding-left: 0em !; ">
                         <li><a class="dropdown-item" href="?controlador=stocklibros&accion=mislibros">Mis Libros</a>
                         </li>
-                        <li><del><a class="dropdown-item" href="?controlador=&accion=">Mi Perfil</a></del></li>
+                        <li><a class="dropdown-item" href="?controlador=usuarios&accion=editarCommonUser">Mi
+                                Perfil</a>
+                        </li>
                     </ul>
                 </li>
                 <?php }
-        } else { ?>
+                } else { ?>
                 <li class="nav-item">
                     <a class="nav-link active" href="Clase/contacto.html">Contacto</a>
                 </li>

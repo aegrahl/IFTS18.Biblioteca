@@ -5,15 +5,15 @@ class stockLibros
 {
 
 
-    public static function crearLibroUsuario($titulo, $id_genero, $id_editorial, $id_autor, $id_usuario)
+    public static function crearLibroUsuario($titulo, $id_genero, $id_editorial, $id_autor, $id_usuario, $image_name)
     {
         $id_usuario = $_SESSION['id_usuario'];
         $id_libro = "";
         try {
             $connectionBD = BD::crearInstancia();
-            $sql = $connectionBD->prepare("INSERT INTO libros(titulo, id_genero, id_editorial, id_autor) VALUES(?,?,?,?);");
+            $sql = $connectionBD->prepare("INSERT INTO libros(titulo, id_genero, id_editorial, id_autor, image_name) VALUES(?,?,?,?,?);");
 
-            $sql->execute([$titulo, $id_genero, $id_editorial, $id_autor]);
+            $sql->execute([$titulo, $id_genero, $id_editorial, $id_autor, $image_name]);
             $id_libro = $connectionBD->lastInsertId();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -72,13 +72,14 @@ class stockLibros
         $vendedor = array();
         try {
             $connectionBD = BD::crearInstancia();
-            $sql = $connectionBD->prepare("SELECT id_usuario  as campana FROM usuarios_libros WHERE id_libro = ?;");
-            $sql->execute([9]);
-            $busqueda = $sql->fetchall(PDO::FETCH_ASSOC);
+            $sql = $connectionBD->prepare("SELECT id_usuario FROM usuarios_libros WHERE id_libro = ?;");
+            $sql->execute([$id_libro]);
+            $busqueda = $sql->fetchAll(PDO::FETCH_OBJ);
+            $user = $busqueda[0]->id_usuario;
             if (!$busqueda) {
-                header('Location: ./?controlador=libros&accion=inicio');
+                echo "no hay nada";
             } else {
-                $vendedor = Usuario::buscarUsuario(3);
+                $vendedor = Usuario::buscarUsuario($user);
             }
             // $id_usuario = $busqueda[0]->id_usuario;
             // $vendedor = Usuario::buscarUsuario($id_usuario);
@@ -96,7 +97,9 @@ class stockLibros
         $libros = array();
         try {
             $connectionBD = BD::crearInstancia();
-            $sql = $connectionBD->prepare("SELECT * FROM libros;");
+            $sql = $connectionBD->prepare("SELECT * FROM libros
+                                            INNER JOIN usuarios_libros ON libros.id_libro = usuarios_libros.id_libro
+                                            WHERE usuarios_libros.is_venta = 1;");
             $sql->execute();
             $id_libros = $sql->fetchAll(PDO::FETCH_ASSOC);
             foreach ($id_libros as $id_libro) {

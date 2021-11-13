@@ -1,17 +1,16 @@
-
-
 <div class="login">
-    <div class="d-flex justify-content-center align-items-center vh-100" >
+    <div class="d-flex justify-content-center align-items-center vh-100">
 
-    <?php if(!$_SESSION){?>
-    <div class="container">
+        <?php if (!$_SESSION) { ?>
+        <div class="container">
             <div class="row d-flex justify-content-center align-items-center vh-100">
                 <div class="col-md-6">
                     <div class="login-form bg-light mt-4 p-4" style="    border-radius: 0.5em;
                     background-color: #d3dd69 !important;">
                         <form action="" method="post" class="row g-3">
                             <div style="    text-align: center;">
-                                <h4 style="font-family:'Libre Baskerville', serif; font-size:0.9em; fo">BIENVENIDO A BIBLIO</h4>
+                                <h4 style="font-family:'Libre Baskerville', serif; font-size:0.9em; fo">BIENVENIDO A
+                                    BIBLIO</h4>
                             </div>
 
                             <div class="col-12">
@@ -34,7 +33,8 @@
                         </form>
                         <hr class="mt-4">
                         <div class="col-12">
-                            <p class="text-center mb-0" style="font-size:1.5em;">Todavía no tenes una cuenta? <a href="?controlador=login&accion=registro">Resgistrate</a></p>
+                            <p class="text-center mb-0" style="font-size:2em;">Todavía no tenes una cuenta? <a
+                                    href="?controlador=login&accion=registro">Resgistrate</a></p>
                         </div>
                     </div>
                 </div>
@@ -44,6 +44,6 @@
     </div>
 </div>
 
-<?php }else{
-    header("Location: index.php");
-}?>
+<?php } else {
+            header("Location: index.php");
+        } ?>

@@ -2,55 +2,60 @@
 
 include_once("modelos/autor.php");
 include_once("conexion.php");
-
+include_once('modelos/login.php');
 BD::crearInstancia();
 
-class ControladorAutor{
+class ControladorAutor
+{
 
-    public function inicio(){
+    public function inicio()
+    {
+        Login::isAdmin();
         $autores = Autor::getAutores();
         include_once("vistas/autor/inicio.php");
     }
 
-    public function crear(){
-        if($_POST){
-            Autor::crearAutor($_POST['nombre'],$_POST['apellido']);
-            header('Location: ./?controlador=autor&accion=inicio');
+    public function crear()
+    {
+        Login::isAdmin();
+        if ($_POST) {
+            Autor::crearAutor($_POST['nombre'], $_POST['apellido']);
+            echo '<script> window.location="./?controlador=autor&accion=inicio"</script>';
         }
         include_once("vistas/autor/crear.php");
     }
 
-    public function buscarAutor(){
+    public function buscarAutor()
+    {
         $autor = Autor::buscarAutor($_GET['id']);
         include_once("vistas/autor/editar.php");
     }
 
-    public function editar(){
-
-        if($_GET){
+    public function editar()
+    {
+        Login::isAdmin();
+        if ($_GET) {
             $autor = Autor::buscarAutor($_GET['id_autor']);
             print_r($autor);
             include_once("vistas/autor/editar.php");
-           // header('Location:./?controlador=editorial&accion=editar');
+            // header('Location:./?controlador=editorial&accion=editar');
         }
 
-        if($_POST){
+        if ($_POST) {
             print_r($_POST);
-            Autor::editarAutor($_POST['id_autor'],$_POST['nombre'],$_POST['apellido']);
-            header('Location: ./?controlador=autor&accion=inicio');
+            Autor::editarAutor($_POST['id_autor'], $_POST['nombre'], $_POST['apellido']);
+            echo '<script> window.location="./?controlador=autor&accion=inicio"</script>';
         }
     }
-    
-    public function eliminar(){
 
-        if($_GET){
+    public function eliminar()
+    {
+
+        Login::isAdmin();
+        if ($_GET) {
             print_r($_GET);
             Autor::eliminarAutor($_GET['id_autor']);
-           header('Location:./?controlador=editorial&accion=inicio');
+            echo '<script> window.location="./?controlador=autor&accion=inicio"</script>';
         }
-
-
     }
 }
-
-?>

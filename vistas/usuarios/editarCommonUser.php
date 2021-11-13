@@ -3,35 +3,32 @@
     <div class="card col-12 col-lg-6 m-5">
         <div class="card">
             <div class="card-header">
-                Editar Usuario
+                Mis datos
             </div>
             <div class="card-body">
                 <form action="" method="post">
 
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">ID:</label>
-                        <input readonly type="text" class="form-control" name="id_usuario" id="id_usuario"
-                            aria-describedby="helpId" value="<?php echo $usuario->id_usuario ?>">
-                    </div>
+                    <input required type="hidden" class="form-control" name="id_usuario" id="id_usuario"
+                        aria-describedby="helpId" placeholder="">
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre:</label>
                         <input required type="text" class="form-control" name="nombre" id="nombre"
                             aria-describedby="helpId" placeholder="Nombre del usuario"
-                            value="<?php echo $usuario->nombre ?>">
+                            value=<?php echo $usuario->nombre ?>>
                     </div>
 
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido:</label>
                         <input required type="text" class="form-control" name="apellido" id="apellido"
                             aria-describedby="helpId" placeholder="Apellido del usuario"
-                            value="<?php echo $usuario->apellido ?>">
+                            value=<?php echo $usuario->apellido ?>>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email:</label>
                         <input required type="email" class="form-control" name="email" id="email"
-                            aria-describedby="helpId" placeholder="Email" value="<?php echo $usuario->email ?>">
+                            aria-describedby="helpId" placeholder="Email" value=<?php echo $usuario->email ?>>
                     </div>
 
                     <span id="errorEmail" class="text-warning"></span>
@@ -39,7 +36,7 @@
                     <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>
                         <input required type="password" class="form-control" name="password" id="password"
-                            aria-describedby="helpId" placeholder="Password" value="<?php echo $usuario->password ?>">
+                            aria-describedby="helpId" placeholder="Password" value=<?php echo $usuario->password ?>>
                     </div>
                     <span id="complejidad" class="text-warning"></span>
 
@@ -48,7 +45,7 @@
                         <label for="confirm_password" class="form-label">Repetir Password:</label>
                         <input required type="password" class="form-control" name="confirm_password"
                             id="confirm_password" aria-describedby="helpId" placeholder="Repetir Password"
-                            value="<?php echo $usuario->password ?>">
+                            value=<?php echo $usuario->password ?>>
                     </div>
 
                     <span id="errorPassword" class="text-warning"></span>
@@ -57,27 +54,12 @@
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Telefono:</label>
                         <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId"
-                            placeholder="Telefono" value="<?php echo $usuario->telefono ?>">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="rol" class="form-label">Rol:</label>
-                        <select name="rol" id="rol" class="form-control">
-                            <?php
-                            if ($usuario->rol == 1) {
-                                echo '<option selected value="admin" selected>Administrador</option>';
-                            } else if ($usuario->rol == 2) {
-                                echo '<option selected value="usuario" selected>Usuario</option>';
-                            } ?>
-                            <option value="">Seleccione un rol</option>
-                            <option value="1">Administrador</option>
-                            <option value="2">Comprador-Vendedor</option>
-                        </select>
+                            placeholder="Telefono" value=<?php echo $usuario->telefono ?>>
                     </div>
 
 
 
-                    <input name="" id="submit" class="btn btn-success" type="submit" value="Modificar">
+                    <input name="" id="submit" class="btn btn-success" type="submit" value="Modificar mis datos">
                 </form>
             </div>
         </div>
