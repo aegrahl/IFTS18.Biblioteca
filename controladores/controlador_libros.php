@@ -43,7 +43,7 @@ class ControladorLibros
             $tipo_archivo = $_FILES['userfile']['type'];
             $tamano_archivo = $_FILES['userfile']['size'];
             $nombre_img_db = $codigo . $nombre_archivo_cliente;
-            $dir_subida = 'E:\xampp\htdocs\IFTS18.Biblioteca\statics\img\\';
+            $dir_subida = 'statics/img/';
             $fichero_subido = $dir_subida . basename($nombre_img_db);
 
 
