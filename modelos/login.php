@@ -49,7 +49,7 @@ class Login
         if (isset($_SESSION['nombre'])) {
             return true;
         } else {
-            echo "<script> window.location=\"./?controlador=Login&accion=error&error=$error\"</script>";
+            echo "<script> window.location=\"./?controlador=login&accion=error&error=$error\"</script>";
         }
         return false;
     }
