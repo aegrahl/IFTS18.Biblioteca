@@ -1,7 +1,10 @@
 <?php
 
 include_once('modelos/editorial.php');
+include_once('modelos/login.php');
 include_once('conexion.php');
+
+
 
 BD::crearInstancia();
 
